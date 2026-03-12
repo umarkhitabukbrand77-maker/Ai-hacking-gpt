@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Cybersecurity AI Assistant</title>
+
+<style>
+
+body{
+font-family:Arial;
+background:#0b0f19;
+color:#00ff9c;
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+}
+
+.container{
+width:450px;
+background:#111827;
+padding:20px;
+border-radius:10px;
+box-shadow:0 0 20px #000;
+}
+
+h1{
+text-align:center;
+margin-bottom:15px;
+}
+
+.chatbox{
+background:#020617;
+height:220px;
+overflow:auto;
+padding:10px;
+border-radius:6px;
+margin-bottom:10px;
+}
+
+input{
+width:75%;
+padding:10px;
+border:none;
+border-radius:5px;
+}
+
+button{
+padding:10px;
+background:#22c55e;
+border:none;
+border-radius:5px;
+cursor:pointer;
+}
+
+button:hover{
+background:#16a34a;
+}
+
+.message{
+margin:8px 0;
+}
+
+.user{
+color:#38bdf8;
+}
+
+.ai{
+color:#22c55e;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Cyber AI Tutor</h1>
+
+<div class="chatbox" id="chat"></div>
+
+<input id="input" placeholder="Ask about cybersecurity...">
+<button onclick="send()">Send</button>
+
+</div>
+
+<script>
+
+function send(){
+
+let input=document.getElementById("input").value
+let chat=document.getElementById("chat")
+
+chat.innerHTML += "<div class='message user'>You: "+input+"</div>"
+
+let response=""
+
+if(input.toLowerCase().includes("password")){
+response="Use strong passwords with numbers, symbols, and avoid using personal info."
+}
+
+else if(input.toLowerCase().includes("phishing")){
+response="Phishing is when attackers trick people with fake emails or websites to steal data."
+}
+
+else if(input.toLowerCase().includes("wifi")){
+response="Never connect to unknown public WiFi without protection like a VPN."
+}
+
+else{
+response="I can teach cybersecurity basics like phishing, passwords, and online safety."
+}
+
+chat.innerHTML += "<div class='message ai'>AI: "+response+"</div>"
+
+document.getElementById("input").value=""
+
+}
+
+</script>
+
+</body>
+</html>
